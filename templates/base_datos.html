@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block title %}Bases de Datos | Soundtec{% endblock %}
+{% block content %}
+<div class="box">
+  <h2 class="mb-4">📦 Gestión de Bases de Datos</h2>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h5>Xtrabone</h5>
+      <p>Productos almacenados: <span id="cantidad-xtrabone">{{ cantidad_xtrabone }}</span></p>
+    </div>
+    <button class="btn btn-blue" onclick="actualizarXtrabone()">🔄 Actualizar Xtrabone</button>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h5>Macaio</h5>
+      <p>Productos almacenados: <span id="cantidad-macaio">{{ cantidad_macaio }}</span></p>
+    </div>
+    <button class="btn btn-blue" onclick="actualizarMacaio()">🔄 Actualizar Macaio</button>
+  </div>
+
+  
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h5>Soundtube</h5>
+      <p>Subir archivo Excel con productos</p>
+    </div>
+    <form id="form-soundtube" enctype="multipart/form-data">
+      <input type="file" name="archivo" required />
+      <button class="btn btn-blue" type="submit">📤 Subir Excel</button>
+    </form>
+  </div>
+  
+  
+</div>
+
+
+<script>
+  function actualizarXtrabone() {
+    document.getElementById("estado").textContent = "🔄 Actualizando productos de Xtrabone...";
+    fetch("/actualizar_db_xtrabone", { method: "POST" })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById("estado").textContent = `✅ Se actualizaron ${data.total} productos de Xtrabone.`;
+          document.getElementById("cantidad-xtrabone").textContent = data.total;
+        } else {
+          document.getElementById("estado").textContent = "❌ Error en Xtrabone: " + data.error;
+        }
+      });
+  }
+
+  function actualizarMacaio() {
+    document.getElementById("estado").textContent = "🔄 Actualizando productos de Macaio...";
+    fetch("/actualizar_db_macaio", { method: "POST" })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById("estado").textContent = `✅ Se actualizaron ${data.total} productos de Macaio.`;
+          document.getElementById("cantidad-macaio").textContent = data.total;
+        } else {
+          document.getElementById("estado").textContent = "❌ Error en Macaio: " + data.error;
+        }
+      });
+  }
+  document.getElementById("form-soundtube").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+  
+    fetch("/subir_excel_soundtube", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          document.getElementById("estado").textContent = `✅ Se cargaron ${data.filas} productos de Soundtube.`;
+        } else {
+          document.getElementById("estado").textContent = "❌ Error en Soundtube: " + data.error;
+        }
+      });
+  });
+</script>
+{% endblock %}

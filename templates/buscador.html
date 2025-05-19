@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+{% block title %}Soundtec{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <div class="card shadow p-4">
+    <h3 class="mb-4">🔍 Buscador de Productos</h3>
+    <form id="form-busqueda" class="d-flex gap-2">
+      <input type="text" id="producto" name="producto" class="form-control" placeholder="Buscar por nombre o código..." required>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+  </div>
+  <div id="resultados" class="mt-4"></div>
+</div>
+
+<script>
+const form = document.getElementById('form-busqueda');
+const resultados = document.getElementById('resultados');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  resultados.innerHTML = "<p>Buscando...</p>";
+  const producto = document.getElementById('producto').value;
+
+  const res = await fetch('/buscar', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: `producto=${encodeURIComponent(producto)}`
+  });
+
+  const data = await res.json();
+  mostrarResultados(data);
+});
+
+function agregarAlCarrito(producto) {
+  fetch('/agregar-carrito', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(producto)
+  });
+}
+
+function mostrarResultados(productos) {
+  resultados.innerHTML = "";
+  if (productos.length === 0) {
+    resultados.innerHTML = "<div class='alert alert-warning'>No se encontraron resultados.</div>";
+    return;
+  }
+
+  productos.forEach((p, index) => {
+    const precioBase = typeof p.precio === "number"
+      ? p.precio
+      : parseFloat((p.precio || "").toString().replace(/[^0-9.]/g, "")) || 0;
+
+    const mup = parseFloat(p.mup) || 1.3;
+    const iva = parseFloat(p.iva) || 0;
+    const descuento = parseFloat(p.detalles?.descuento || p.descuento) || 0;
+
+    const precioVenta = precioBase * mup * (1 - descuento / 100);
+    const precioConIVA = precioBase * (1 + iva / 100);
+    const precioVentaConIVA = precioVenta * (1 + iva / 100);
+
+    const marca = p.detalles?.marca || p.marca || "-";
+    const categoria = p.detalles?.categoria || p.categoria || "";
+    const descripcionLarga = p.detalles?.descripcion_larga || p.descripcion_larga || "";
+
+    const infoFabrica = p.detalles?.info_fabrica || "";
+    const laredo = p.detalles?.laredo || "";
+    const miami = p.detalles?.miami || "";
+
+    resultados.innerHTML += `
+      <div class="card mb-3 shadow-sm border-start border-4 border-primary p-3">
+        <div class="row">
+          <div class="col-md-8">
+            <h6 class="text-secondary">${p.origen === "Xtrabone" ? "Crestron" : marca}</h6>
+            <h5 class="card-title text-primary mb-1">${p.articulo}</h5>
+
+            <p class="mb-1"><strong>SKU:</strong> ${p.codigo}</p>
+            <p class="mb-1"><strong>Categoría:</strong> 
+              <input type="text" class="form-control form-control-sm d-inline w-auto" id="categoria-${index}" value="${categoria}" />
+            </p>
+            <p class="mb-1"><strong>Origen:</strong> ${p.origen}</p>
+
+            <p class="mb-1"><strong>Precio:</strong> $${precioBase.toLocaleString("en-US", { minimumFractionDigits: 2 })} USD</p>
+            <p class="mb-1"><strong>Precio con IVA:</strong> $${precioConIVA.toLocaleString("en-US", { minimumFractionDigits: 2 })} USD</p>
+            <p class="mb-1"><strong>Precio Venta:</strong> $${precioVenta.toLocaleString("en-US", { minimumFractionDigits: 2 })} USD</p>
+            <p class="mb-2"><strong>Precio Venta con IVA:</strong> $${precioVentaConIVA.toLocaleString("en-US", { minimumFractionDigits: 2 })} USD</p>
+
+            <div class="d-flex flex-wrap gap-3 align-items-center mb-2">
+              <label class="mb-0">IVA:</label>
+              <select class="form-select form-select-sm w-auto" id="iva-${index}">
+                <option value="0" ${iva == 0 ? "selected" : ""}>0%</option>
+                <option value="10.5" ${iva == 10.5 ? "selected" : ""}>10.5%</option>
+                <option value="21" ${iva == 21 ? "selected" : ""}>21%</option>
+              </select>
+
+              <label class="mb-0">MUP:</label>
+              <input type="number" step="0.01" class="form-control form-control-sm w-auto" id="mup-${index}" value="${mup}" />
+
+              <label class="mb-0">Descuento:</label>
+              <input type="number" step="0.1" class="form-control form-control-sm w-auto" id="descuento-${index}" value="${descuento}" />
+            </div>
+
+            ${infoFabrica ? `<p class="mb-1"><strong>Info Fábrica:</strong> ${infoFabrica}</p>` : ""}
+            ${laredo ? `<p class="mb-1"><strong>Laredo:</strong> ${laredo}</p>` : ""}
+            ${miami ? `<p class="mb-1"><strong>Miami:</strong> ${miami}</p>` : ""}
+          </div>
+
+          <div class="col-md-4 text-center">
+            ${p.imagen_url ? `
+              <img src="${p.imagen_url}" id="imagen-${index}" class="img-fluid mb-2" style="max-height: 100px;" />
+            ` : `<p class="text-muted" id="imagen-${index}">No hay imagen para mostrar</p>`}
+
+            <p class="text-muted small mb-2" id="descripcion-extra-${index}">${p.descripcion_extra || 'Sin descripción breve'}</p>
+
+
+            <textarea class="form-control mb-2" rows="3" id="descripcion_larga-${index}" placeholder="Descripción larga...">${descripcionLarga}</textarea>
+
+            <button class="btn btn-outline-primary w-100" onclick="guardarCambios(${index}, '${p.articulo}', '${p.origen}')">
+              💾 Guardar cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function guardarCambios(index, nombre, origen) {
+  const mup = parseFloat(document.getElementById(`mup-${index}`).value) || 1.3;
+  const iva = parseFloat(document.getElementById(`iva-${index}`).value) || 21;
+  const categoria = document.getElementById(`categoria-${index}`).value || "";
+  const descuento = parseFloat(document.getElementById(`descuento-${index}`).value) || 0;
+  const descripcion_larga = document.getElementById(`descripcion_larga-${index}`).value || "";
+
+  const descripcion = document.getElementById(`descripcion-extra-${index}`)?.innerText || "";
+  const imagen_url = document.getElementById(`imagen-${index}`)?.src || "";
+
+  fetch("/actualizar_producto", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      nombre,
+      origen,
+      mup,
+      iva,
+      categoria,
+      descripcion_larga,
+      descuento,
+      descripcion,
+      imagen_url
+    })
+  }).then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert("✅ Cambios guardados correctamente.");
+      } else {
+        alert("❌ Error al guardar: " + data.error);
+      }
+    });
+}
+
+function guardarCambios(index, nombre, origen) {
+  const mup = parseFloat(document.getElementById(`mup-${index}`).value) || 1.3;
+  const iva = parseFloat(document.getElementById(`iva-${index}`).value) || 21;
+  const categoria = document.getElementById(`categoria-${index}`).value || "";
+  const descuento = parseFloat(document.getElementById(`descuento-${index}`).value) || 0;
+  const descripcion_larga = document.getElementById(`descripcion_larga-${index}`).value || "";
+
+  const descripcion = document.getElementById(`descripcion-extra-${index}`)?.innerText || "";
+  const imagen_url = document.getElementById(`imagen-${index}`)?.src || "";
+
+  fetch("/actualizar_producto", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      nombre,
+      origen,
+      mup,
+      iva,
+      categoria,
+      descripcion_larga,
+      descuento,
+      descripcion,
+      imagen_url
+    })
+  }).then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert("✅ Cambios guardados correctamente.");
+      } else {
+        alert("❌ Error al guardar: " + data.error);
+      }
+    });
+}
+
+
+function formatearPrecio(valor) {
+  let n = parseFloat(valor);
+  if (isNaN(n)) return "-";
+  return "$" + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+
+</script>
+{% endblock %}

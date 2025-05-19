@@ -1,0 +1,572 @@
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+/* ----- ----- ----- ----- style ----- ----- ----- ----- */
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+/* ----- ----- ----- --------------------- ----- ----- ----- */
+/* ----- ----- ----- 3. Bootstrap Override ----- ----- ----- */
+/* ----- ----- ----- --------------------- ----- ----- ----- */
+/* ***** 3.1 Misc - override/_misc */
+/* ***** 3.2 Form - override/_form */
+/* ***** 3.3 List - override/_list */
+/* ***** 3.4 Alert - override/_alert */
+/* ***** 3.5 Card - override/_card */
+.xtrabone-rojo .card.card-hero .card-header {
+  background-image: linear-gradient(to bottom, #cb4335, #d5695e);
+}
+.xtrabone-rojo .card.card-hero .card-header .card-icon {
+  color: #eab4af;
+}
+
+/* ***** 3.6 Table - override/_table */
+/* ***** 3.7 Tooltip - override/_tooltip */
+/* ***** 3.8 Modal - override/_modal */
+/* ***** 3.9 Nav - override/_nav */
+/* ***** 3.10 Pagination - override/_pagination */
+/* ***** 3.11 Badge - override/_badge */
+/* ***** 3.12 Button - override/_button */
+/* ***** 3.13 Media - override/_media */
+/* ***** 3.14 Breadcrumb - override/_breadcrumb */
+/* ***** 3.15 Accordion - override/_accordion */
+/* ***** 3.16 Popover - override/_popover */
+/* ***** 3.17 Grid - override/_grid */
+/* ***** 3.18 Navbar - override/_navbar */
+.xtrabone-rojo .navbar.active {
+  background-color: #cb4335;
+}
+
+.xtrabone-rojo .navbar-bg {
+  background-color: #cb4335;
+}
+
+.xtrabone-rojo .navbar .form-inline .search-result .search-item a:hover {
+  background-color: #ecbcb7;
+}
+
+@media (max-width: 1024px) {
+  .xtrabone-rojo .nav-collapse .navbar-nav .nav-item .nav-link:hover {
+    color: #cb4335;
+  }
+  .xtrabone-rojo .nav-collapse .navbar-nav .nav-item.active > a {
+    background-color: #cb4335;
+  }
+}
+/* ***** 3.19 Dropdown - override/_dropdown */
+/* ***** 3.20 Tab - override/_tab */
+/* ***** 3.21 Progressbar - override/_progressbar */
+/* ***** 3.22 Jumbotron - override/_jumbotron */
+/* ***** 3.23 Carousel - override/_carousel */
+/* ----- ----- ----- -------------- ----- ----- ----- */
+/* ----- ----- ----- 4. Theme Style ----- ----- ----- */
+/* ----- ----- ----- -------------- ----- ----- ----- */
+/* ***** 4.1 Misc - theme/misc */
+.xtrabone-rojo :root {
+  /* Colors */
+  --primary: color($theme);
+}
+
+.xtrabone-rojo a.bb {
+  border-bottom: 1px solid #cb4335;
+}
+
+.xtrabone-rojo .circle-step .circle.circle-primary {
+  border-color: #cb4335;
+  color: #cb4335;
+}
+
+.xtrabone-rojo .shadow-primary {
+  box-shadow: 0 2px 6px #db7c72;
+}
+
+/* ***** 4.2 Section - theme/section */
+.xtrabone-rojo .section .section-header .section-header-back .btn:hover {
+  background-color: #cb4335;
+}
+.xtrabone-rojo .section .section-title:before {
+  background-color: #cb4335;
+}
+
+/* ***** 4.3 Page - theme/page */
+/* ***** 4.4 Layout - theme/layout */
+body.xtrabone-rojo.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
+  background-color: #cb4335;
+}
+body.xtrabone-rojo.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li > a:focus,
+body.xtrabone-rojo.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a,
+body.xtrabone-rojo.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a:hover {
+  background-color: #cb4335 !important;
+}
+
+body.xtrabone-rojo .layout-2 .main-sidebar .sidebar-menu li a:hover {
+  color: #cb4335;
+}
+
+body.xtrabone-rojo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item.active > .nav-link {
+  color: #cb4335;
+}
+body.xtrabone-rojo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link:before {
+  background-color: #cb4335;
+}
+body.xtrabone-rojo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item .nav-link:focus,
+body.xtrabone-rojo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item.active > .nav-link {
+  background-color: #cb4335;
+}
+
+.xtrabone-rojo .main-sidebar .sidebar-menu li.active a {
+  color: #cb4335;
+}
+.xtrabone-rojo .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
+  color: #cb4335;
+}
+.xtrabone-rojo .main-sidebar .sidebar-menu li ul.dropdown-menu li.active > a {
+  color: #cb4335;
+}
+
+.xtrabone-rojo .simple-footer {
+  color: white;
+  text-shadow: 0px 0px 5px #cb4335;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+body.xtrabone-rojo:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active a {
+  background-color: #cb4335;
+}
+body.xtrabone-rojo:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a {
+  color: #e8ada7;
+}
+body.xtrabone-rojo:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a:hover {
+  background-color: #cb4335;
+}
+
+body.xtrabone-rojo:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu > li.active > a:before {
+  background-color: #cb4335;
+}
+
+/* ***** 4.5 Animation - theme/animation */
+/* ----- ----- ----- ----- ---------- ----- ----- ----- ----- */
+/* ----- ----- ----- ----- components ----- ----- ----- ----- */
+/* ----- ----- ----- ----- ---------- ----- ----- ----- ----- */
+/* 1.1 Article - components/_article */
+/* 1.2 Author - components/_author */
+/* 1.3 Avatar Item - components/_avataritem */
+/* 1.4 Browser - components/_browser */
+/* 1.5 Chat - components/_chat */
+/* 1.6 Chocolat - components/_chocolat */
+/* 1.7 Custom Tab - components/_customtab */
+/* 1.8 DataTables - components/_datatables */
+/* 1.9 Date Range Picker - components/_daterangepicker */
+/* 1.10 Dropzone - components/_dropzone */
+/* 1.11 Flag Icon - components/_flagicon */
+/* 1.12 Full Calendar - components/_fullcalendar */
+/* 1.13 Gallery - components/_gallery */
+/* 1.14 Image Preview - components/_imagepreview */
+/* 1.15 IonIcons - components/_ionicons */
+/* 1.16 jQVmap - components/_jqvmap */
+/* 1.17 Profile - components/_profile */
+/* 1.18 Select2 - components/_select2 */
+/* 1.19 Selectric - components/_selectric */
+/* 1.20 Slider - components/_slider */
+/* 1.21 Sparkline - components/_sparkline */
+/* 1.22 Statistics - components/_statistics */
+/* 1.23 Summary - components/_summary */
+/* 1.24 Summernote - components/_summernote */
+/* 1.25 Sweet Alert - components/_sweetalert */
+/* 1.26 Tags Input - components/_tagsinput */
+/* 1.27 Time Picker - components/_timepicker */
+/* 1.28 Toast - components/_toast */
+/* 1.29 User Item - components/_useritem */
+/* 1.30 Weather - components/_weather */
+/* 1.31 Weather Icon - components/_weathericon */
+/* 1.32 PWStrength - components/_pwstrength */
+/* 1.33 Product - components/_product */
+/* 1.34 Ticket - components/_ticket */
+/* 1.35 Owl Carousel - components/_owlcarousel */
+/* 1.36 Activities - components/_activities */
+/* 1.37 Activities - components/_invoice */
+/* 1.38 Empty States - components/_empty_state */
+/* 1.39 Pricing - components/_pricing */
+/* 1.40 Hero - components/_hero */
+/* 1.41 Avatar - components/_avatar */
+/* 1.42 Wizard - components/_wizard */
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+/* ----- ----- ----- ----- style ----- ----- ----- ----- */
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+/* ----- ----- ----- --------------------- ----- ----- ----- */
+/* ----- ----- ----- 3. Bootstrap Override ----- ----- ----- */
+/* ----- ----- ----- --------------------- ----- ----- ----- */
+/* ***** 3.1 Misc - override/_misc */
+/* ***** 3.2 Form - override/_form */
+/* ***** 3.3 List - override/_list */
+/* ***** 3.4 Alert - override/_alert */
+/* ***** 3.5 Card - override/_card */
+.xtrabone-azul .card.card-hero .card-header {
+  background-image: linear-gradient(to bottom, #2e86c1, #4d9ed5);
+}
+.xtrabone-azul .card.card-hero .card-header .card-icon {
+  color: #a0cbe8;
+}
+
+/* ***** 3.6 Table - override/_table */
+/* ***** 3.7 Tooltip - override/_tooltip */
+/* ***** 3.8 Modal - override/_modal */
+/* ***** 3.9 Nav - override/_nav */
+/* ***** 3.10 Pagination - override/_pagination */
+/* ***** 3.11 Badge - override/_badge */
+/* ***** 3.12 Button - override/_button */
+/* ***** 3.13 Media - override/_media */
+/* ***** 3.14 Breadcrumb - override/_breadcrumb */
+/* ***** 3.15 Accordion - override/_accordion */
+/* ***** 3.16 Popover - override/_popover */
+/* ***** 3.17 Grid - override/_grid */
+/* ***** 3.18 Navbar - override/_navbar */
+.xtrabone-azul .navbar.active {
+  background-color: #2e86c1;
+}
+
+.xtrabone-azul .navbar-bg {
+  background-color: #2e86c1;
+}
+
+.xtrabone-azul .navbar .form-inline .search-result .search-item a:hover {
+  background-color: #a8d0ea;
+}
+
+@media (max-width: 1024px) {
+  .xtrabone-azul .nav-collapse .navbar-nav .nav-item .nav-link:hover {
+    color: #2e86c1;
+  }
+  .xtrabone-azul .nav-collapse .navbar-nav .nav-item.active > a {
+    background-color: #2e86c1;
+  }
+}
+/* ***** 3.19 Dropdown - override/_dropdown */
+/* ***** 3.20 Tab - override/_tab */
+/* ***** 3.21 Progressbar - override/_progressbar */
+/* ***** 3.22 Jumbotron - override/_jumbotron */
+/* ***** 3.23 Carousel - override/_carousel */
+/* ----- ----- ----- -------------- ----- ----- ----- */
+/* ----- ----- ----- 4. Theme Style ----- ----- ----- */
+/* ----- ----- ----- -------------- ----- ----- ----- */
+/* ***** 4.1 Misc - theme/misc */
+.xtrabone-azul :root {
+  /* Colors */
+  --primary: color($theme);
+}
+
+.xtrabone-azul a.bb {
+  border-bottom: 1px solid #2e86c1;
+}
+
+.xtrabone-azul .circle-step .circle.circle-primary {
+  border-color: #2e86c1;
+  color: #2e86c1;
+}
+
+.xtrabone-azul .shadow-primary {
+  box-shadow: 0 2px 6px #62aada;
+}
+
+/* ***** 4.2 Section - theme/section */
+.xtrabone-azul .section .section-header .section-header-back .btn:hover {
+  background-color: #2e86c1;
+}
+.xtrabone-azul .section .section-title:before {
+  background-color: #2e86c1;
+}
+
+/* ***** 4.3 Page - theme/page */
+/* ***** 4.4 Layout - theme/layout */
+body.xtrabone-azul.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
+  background-color: #2e86c1;
+}
+body.xtrabone-azul.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li > a:focus,
+body.xtrabone-azul.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a,
+body.xtrabone-azul.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a:hover {
+  background-color: #2e86c1 !important;
+}
+
+body.xtrabone-azul .layout-2 .main-sidebar .sidebar-menu li a:hover {
+  color: #2e86c1;
+}
+
+body.xtrabone-azul .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item.active > .nav-link {
+  color: #2e86c1;
+}
+body.xtrabone-azul .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link:before {
+  background-color: #2e86c1;
+}
+body.xtrabone-azul .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item .nav-link:focus,
+body.xtrabone-azul .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item.active > .nav-link {
+  background-color: #2e86c1;
+}
+
+.xtrabone-azul .main-sidebar .sidebar-menu li.active a {
+  color: #2e86c1;
+}
+.xtrabone-azul .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
+  color: #2e86c1;
+}
+.xtrabone-azul .main-sidebar .sidebar-menu li ul.dropdown-menu li.active > a {
+  color: #2e86c1;
+}
+
+.xtrabone-azul .simple-footer {
+  color: white;
+  text-shadow: 0px 0px 5px #2e86c1;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+body.xtrabone-azul:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active a {
+  background-color: #2e86c1;
+}
+body.xtrabone-azul:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a {
+  color: #97c7e6;
+}
+body.xtrabone-azul:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a:hover {
+  background-color: #2e86c1;
+}
+
+body.xtrabone-azul:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu > li.active > a:before {
+  background-color: #2e86c1;
+}
+
+/* ***** 4.5 Animation - theme/animation */
+/* ----- ----- ----- ----- ---------- ----- ----- ----- ----- */
+/* ----- ----- ----- ----- components ----- ----- ----- ----- */
+/* ----- ----- ----- ----- ---------- ----- ----- ----- ----- */
+/* 1.1 Article - components/_article */
+/* 1.2 Author - components/_author */
+/* 1.3 Avatar Item - components/_avataritem */
+/* 1.4 Browser - components/_browser */
+/* 1.5 Chat - components/_chat */
+/* 1.6 Chocolat - components/_chocolat */
+/* 1.7 Custom Tab - components/_customtab */
+/* 1.8 DataTables - components/_datatables */
+/* 1.9 Date Range Picker - components/_daterangepicker */
+/* 1.10 Dropzone - components/_dropzone */
+/* 1.11 Flag Icon - components/_flagicon */
+/* 1.12 Full Calendar - components/_fullcalendar */
+/* 1.13 Gallery - components/_gallery */
+/* 1.14 Image Preview - components/_imagepreview */
+/* 1.15 IonIcons - components/_ionicons */
+/* 1.16 jQVmap - components/_jqvmap */
+/* 1.17 Profile - components/_profile */
+/* 1.18 Select2 - components/_select2 */
+/* 1.19 Selectric - components/_selectric */
+/* 1.20 Slider - components/_slider */
+/* 1.21 Sparkline - components/_sparkline */
+/* 1.22 Statistics - components/_statistics */
+/* 1.23 Summary - components/_summary */
+/* 1.24 Summernote - components/_summernote */
+/* 1.25 Sweet Alert - components/_sweetalert */
+/* 1.26 Tags Input - components/_tagsinput */
+/* 1.27 Time Picker - components/_timepicker */
+/* 1.28 Toast - components/_toast */
+/* 1.29 User Item - components/_useritem */
+/* 1.30 Weather - components/_weather */
+/* 1.31 Weather Icon - components/_weathericon */
+/* 1.32 PWStrength - components/_pwstrength */
+/* 1.33 Product - components/_product */
+/* 1.34 Ticket - components/_ticket */
+/* 1.35 Owl Carousel - components/_owlcarousel */
+/* 1.36 Activities - components/_activities */
+/* 1.37 Activities - components/_invoice */
+/* 1.38 Empty States - components/_empty_state */
+/* 1.39 Pricing - components/_pricing */
+/* 1.40 Hero - components/_hero */
+/* 1.41 Avatar - components/_avatar */
+/* 1.42 Wizard - components/_wizard */
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+/* ----- ----- ----- ----- style ----- ----- ----- ----- */
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+/* ----- ----- ----- --------------------- ----- ----- ----- */
+/* ----- ----- ----- 3. Bootstrap Override ----- ----- ----- */
+/* ----- ----- ----- --------------------- ----- ----- ----- */
+/* ***** 3.1 Misc - override/_misc */
+/* ***** 3.2 Form - override/_form */
+/* ***** 3.3 List - override/_list */
+/* ***** 3.4 Alert - override/_alert */
+/* ***** 3.5 Card - override/_card */
+.xtrabone-amarillo .card.card-hero .card-header {
+  background-image: linear-gradient(to bottom, #d4ac0d, #f1c823);
+}
+.xtrabone-amarillo .card.card-hero .card-header .card-icon {
+  color: #f7e083;
+}
+
+/* ***** 3.6 Table - override/_table */
+/* ***** 3.7 Tooltip - override/_tooltip */
+/* ***** 3.8 Modal - override/_modal */
+/* ***** 3.9 Nav - override/_nav */
+/* ***** 3.10 Pagination - override/_pagination */
+/* ***** 3.11 Badge - override/_badge */
+/* ***** 3.12 Button - override/_button */
+/* ***** 3.13 Media - override/_media */
+/* ***** 3.14 Breadcrumb - override/_breadcrumb */
+/* ***** 3.15 Accordion - override/_accordion */
+/* ***** 3.16 Popover - override/_popover */
+/* ***** 3.17 Grid - override/_grid */
+/* ***** 3.18 Navbar - override/_navbar */
+.xtrabone-amarillo .navbar.active {
+  background-color: #d4ac0d;
+}
+
+.xtrabone-amarillo .navbar-bg {
+  background-color: #d4ac0d;
+}
+
+.xtrabone-amarillo .navbar .form-inline .search-result .search-item a:hover {
+  background-color: #f8e28c;
+}
+
+@media (max-width: 1024px) {
+  .xtrabone-amarillo .nav-collapse .navbar-nav .nav-item .nav-link:hover {
+    color: #d4ac0d;
+  }
+  .xtrabone-amarillo .nav-collapse .navbar-nav .nav-item.active > a {
+    background-color: #d4ac0d;
+  }
+}
+/* ***** 3.19 Dropdown - override/_dropdown */
+/* ***** 3.20 Tab - override/_tab */
+/* ***** 3.21 Progressbar - override/_progressbar */
+/* ***** 3.22 Jumbotron - override/_jumbotron */
+/* ***** 3.23 Carousel - override/_carousel */
+/* ----- ----- ----- -------------- ----- ----- ----- */
+/* ----- ----- ----- 4. Theme Style ----- ----- ----- */
+/* ----- ----- ----- -------------- ----- ----- ----- */
+/* ***** 4.1 Misc - theme/misc */
+.xtrabone-amarillo :root {
+  /* Colors */
+  --primary: color($theme);
+}
+
+.xtrabone-amarillo a.bb {
+  border-bottom: 1px solid #d4ac0d;
+}
+
+.xtrabone-amarillo .circle-step .circle.circle-primary {
+  border-color: #d4ac0d;
+  color: #d4ac0d;
+}
+
+.xtrabone-amarillo .shadow-primary {
+  box-shadow: 0 2px 6px #f3ce3b;
+}
+
+/* ***** 4.2 Section - theme/section */
+.xtrabone-amarillo .section .section-header .section-header-back .btn:hover {
+  background-color: #d4ac0d;
+}
+.xtrabone-amarillo .section .section-title:before {
+  background-color: #d4ac0d;
+}
+
+/* ***** 4.3 Page - theme/page */
+/* ***** 4.4 Layout - theme/layout */
+body.xtrabone-amarillo.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
+  background-color: #d4ac0d;
+}
+body.xtrabone-amarillo.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li > a:focus,
+body.xtrabone-amarillo.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a,
+body.xtrabone-amarillo.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li.active > a:hover {
+  background-color: #d4ac0d !important;
+}
+
+body.xtrabone-amarillo .layout-2 .main-sidebar .sidebar-menu li a:hover {
+  color: #d4ac0d;
+}
+
+body.xtrabone-amarillo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item.active > .nav-link {
+  color: #d4ac0d;
+}
+body.xtrabone-amarillo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link:before {
+  background-color: #d4ac0d;
+}
+body.xtrabone-amarillo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item .nav-link:focus,
+body.xtrabone-amarillo .layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item.active > .nav-link {
+  background-color: #d4ac0d;
+}
+
+.xtrabone-amarillo .main-sidebar .sidebar-menu li.active a {
+  color: #d4ac0d;
+}
+.xtrabone-amarillo .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
+  color: #d4ac0d;
+}
+.xtrabone-amarillo .main-sidebar .sidebar-menu li ul.dropdown-menu li.active > a {
+  color: #d4ac0d;
+}
+
+.xtrabone-amarillo .simple-footer {
+  color: white;
+  text-shadow: 0px 0px 5px #d4ac0d;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+body.xtrabone-amarillo:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active a {
+  background-color: #d4ac0d;
+}
+body.xtrabone-amarillo:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a {
+  color: #f7de79;
+}
+body.xtrabone-amarillo:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a:hover {
+  background-color: #d4ac0d;
+}
+
+body.xtrabone-amarillo:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu > li.active > a:before {
+  background-color: #d4ac0d;
+}
+
+/* ***** 4.5 Animation - theme/animation */
+/* ----- ----- ----- ----- ---------- ----- ----- ----- ----- */
+/* ----- ----- ----- ----- components ----- ----- ----- ----- */
+/* ----- ----- ----- ----- ---------- ----- ----- ----- ----- */
+/* 1.1 Article - components/_article */
+/* 1.2 Author - components/_author */
+/* 1.3 Avatar Item - components/_avataritem */
+/* 1.4 Browser - components/_browser */
+/* 1.5 Chat - components/_chat */
+/* 1.6 Chocolat - components/_chocolat */
+/* 1.7 Custom Tab - components/_customtab */
+/* 1.8 DataTables - components/_datatables */
+/* 1.9 Date Range Picker - components/_daterangepicker */
+/* 1.10 Dropzone - components/_dropzone */
+/* 1.11 Flag Icon - components/_flagicon */
+/* 1.12 Full Calendar - components/_fullcalendar */
+/* 1.13 Gallery - components/_gallery */
+/* 1.14 Image Preview - components/_imagepreview */
+/* 1.15 IonIcons - components/_ionicons */
+/* 1.16 jQVmap - components/_jqvmap */
+/* 1.17 Profile - components/_profile */
+/* 1.18 Select2 - components/_select2 */
+/* 1.19 Selectric - components/_selectric */
+/* 1.20 Slider - components/_slider */
+/* 1.21 Sparkline - components/_sparkline */
+/* 1.22 Statistics - components/_statistics */
+/* 1.23 Summary - components/_summary */
+/* 1.24 Summernote - components/_summernote */
+/* 1.25 Sweet Alert - components/_sweetalert */
+/* 1.26 Tags Input - components/_tagsinput */
+/* 1.27 Time Picker - components/_timepicker */
+/* 1.28 Toast - components/_toast */
+/* 1.29 User Item - components/_useritem */
+/* 1.30 Weather - components/_weather */
+/* 1.31 Weather Icon - components/_weathericon */
+/* 1.32 PWStrength - components/_pwstrength */
+/* 1.33 Product - components/_product */
+/* 1.34 Ticket - components/_ticket */
+/* 1.35 Owl Carousel - components/_owlcarousel */
+/* 1.36 Activities - components/_activities */
+/* 1.37 Activities - components/_invoice */
+/* 1.38 Empty States - components/_empty_state */
+/* 1.39 Pricing - components/_pricing */
+/* 1.40 Hero - components/_hero */
+/* 1.41 Avatar - components/_avatar */
+/* 1.42 Wizard - components/_wizard */
+
+/*# sourceMappingURL=xtrabone-themes.css.map */
